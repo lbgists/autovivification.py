@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 # Collected and testing code written by Yu-Jie Lin
+# Blog: http://blog.yjl.im/2013/08/autovivification-in-python.html
+# Gist: https://gist.github.com/livibetter/6258145
 
 from __future__ import print_function
 
@@ -74,6 +76,7 @@ objtree = lambda: objdict(objtree)
 
 # http://blogs.fluidinfo.com/terry/2012/05/26/autovivification-in-python-nested-defaultdicts-with-a-specific-final-type/#comment-546295185
 # @ 2012-06-03 by Roman Evstifeev
+# http://blog.yjl.im/2013/08/autovivification-in-python.html
 # @ 2013-08-16 by Yu-Jie Lin
 objtree2 = lambda: type('objdict2', (defaultdict, ), dict(__getattr__=lambda self, k: self.__dict__[k] if k in self.__dict__ else self.__getitem__(k), __setattr__=lambda self, k, v: self.__setitem__(k,v)))(objtree2)
 
