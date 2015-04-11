@@ -21,7 +21,7 @@ from collections import defaultdict
 tree = lambda: defaultdict(tree)
 
 
-# http://ruslanspivak.com/2008/04/14/autovivication-and-y-combinator-in-python/
+# https://ruslanspivak.wordpress.com/2008/04/14/autovivication-and-y-combinator-in-python/
 # @ 2008-04-14 by Ruslan Spivak -- Y combinator
 def Y(g):
     return ((lambda f: f(f))
@@ -33,7 +33,7 @@ defdict = Y(lambda mk_dict:
                 lambda x=None: defaultdict(lambda x=None: mk_dict(x)))
 
 
-# http://ruslanspivak.com/2008/04/14/autovivication-and-y-combinator-in-python/#comment-87
+# https://ruslanspivak.wordpress.com/2008/04/14/autovivication-and-y-combinator-in-python/#comment-1387
 # @ 2011-07-15 by Adam
 Y2 = lambda g: ( lambda f: f(f) )( lambda f: g( lambda *args: f(f)(*args) ) )
 defdict2 = Y2(lambda mk_dict: lambda: defaultdict(mk_dict))
